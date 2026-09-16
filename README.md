@@ -13,5 +13,9 @@
 - **Day 4:** Randomisation and Python Lists.  
   **Task:** Create a Rock, Paper or Scissors game.
 
-- **Day 5:** Python Loops.
-  **Task:** Create a password generator.
+- **Day 5:** Python Loops.  
+  **Task:** Create a password generator.  
+
+- **Day 6:** Python Functions & Karel.
+  **Task:** Create a script for Reeborg world maze.(Not included in this repository).  
+  
