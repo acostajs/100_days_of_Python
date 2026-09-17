@@ -19,3 +19,5 @@
 - **Day 6:** Python Functions & Karel.
   **Task:** Create a script for Reeborg world maze.(Not included in this repository).  
   
+- **Day 7:** Hangman.
+  **Task:** Create a "Hangman" game.
