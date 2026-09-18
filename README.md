@@ -21,3 +21,6 @@
   
 - **Day 7:** Hangman.
   **Task:** Create a "Hangman" game.
+
+- **Day 8:** Function Parameters & Caesar Cipher.
+  **Task:**  Create a simple "Encryption - Decription" script called Caesar Cipher.
