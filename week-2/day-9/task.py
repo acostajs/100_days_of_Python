@@ -2,7 +2,6 @@
 
 import os
 import time
-import string
 
 from ascii_art import ascii_art
 
@@ -28,8 +27,18 @@ def loading_animation(frames: int):
             case 2:
                 print("SOLD to the highest bidder!!")
 
+def find_highest_bidder(biddings: list):
+    winning_bid = 0
+
+    for bid in range(len(biddings)):
+        new_bid = biddings[bid]["bid"]
+        if new_bid > winning_bid:
+            winning_bid = new_bid
+            winning_name = biddings[bid]["name"]
+
+    return winning_bid, winning_name
+        
 def main():
-    
     print("Welcome to a secret bidding.\nPlease follow the instructions")
     biddings = []
     bidding_proccess = "yes"
@@ -44,13 +53,7 @@ def main():
         bidding_proccess = input("""Is there another bidder? Type 'yes' or 'no'\n - """)
         os.system('csl' if os.name == 'nt' else 'clear')
 
-    winning_bid = 0
-    
-    for bid in range(len(biddings)):
-        new_bid = biddings[bid]["bid"]
-        if new_bid > winning_bid:
-            winning_bid = new_bid
-            winning_name = biddings[bid]["name"]
+    winning_bid, winning_name = find_highest_bidder(biddings)
 
     loading_animation(3)
     print(f"with a bid of ${winning_bid}, {winning_name} is the WINNER!")
