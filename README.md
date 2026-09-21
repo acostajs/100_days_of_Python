@@ -32,7 +32,7 @@
   the process.
 
 - **Day 10:** Functions with Outputs.  
-  **Task:**
+  **Task:** Write a calculator.  
 
 - **Day 11:** The Blackjack Capstone Project.  
   **Task:**  
