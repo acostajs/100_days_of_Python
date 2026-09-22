@@ -35,7 +35,7 @@
   **Task:** Write a calculator.  
 
 - **Day 11:** The Blackjack Capstone Project.  
-  **Task:**  
+  **Task:** Write a simple game of black jack.    
 
 - **Day 12:** Scope and Number Guessing Game.  
   **Task:**  
