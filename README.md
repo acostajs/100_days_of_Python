@@ -38,7 +38,7 @@
   **Task:** Write a simple game of black jack.    
 
 - **Day 12:** Scope and Number Guessing Game.  
-  **Task:**  
+  **Task:** Write a guessing name with 3 different dificulties. 
 
 - **Day 13:** Debugging: How to Find and Fix Errors in your Code.  
   **Task:**

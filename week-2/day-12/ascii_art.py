@@ -1,0 +1,20 @@
+# Ascii art for the task for Day 12 of 100 days of Python
+
+
+def ascii_art(pick: str) -> str:
+
+    
+    match pick:
+        case "title":
+            ascii_art = """                               
+ .d88b. 888  888 .d88b. .d8888b .d8888b  
+d88P"88b888  888d8P  Y8b88K     88K      
+888  888888  88888888888"Y8888b."Y8888b. 
+Y88b 888Y88b 888Y8b.         X88     X88 
+ "Y88888 "Y88888 "Y8888  88888P' 88888P' 
+     888                                 
+Y8b d88P                                 
+ "Y88P"
+ """
+
+    return ascii_art
