@@ -1,7 +1,7 @@
 [project]
 name = "100-days-of-python"
 version = "0.1.0"
-description = "Add your description here"
+description = "This repository contains all the tasks I've done for 100 days of Python"
 readme = "README.md"
 authors = [
     { name = "Juan Acosta", email = "acosta.juan@icloud.com" }
@@ -12,8 +12,14 @@ dependencies = [
 ]
 
 [project.scripts]
-100-days-of-python = "100_days_of_python:main"
+100 = "index:main"
 
 [build-system]
-requires = ["uv_build>=0.12.10,<0.13.0"]
-build-backend = "uv_build"
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["index"]
+
+[tool.setuptools.packages.find]
+include = ["common", "week_*"]
