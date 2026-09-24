@@ -2,17 +2,7 @@
 
 from common.ascii_art import ascii_art
 from common.validators import validate_input
-from common.toolkit import print_menu
-from pathlib import Path
-
-
-def weeks() -> list[str]:
-    weeks = []
-    for item in Path(".").iterdir():
-        if item.is_dir() and item.name.startswith("week_"):
-            weeks.append(item.name)
-
-    return weeks
+from common.toolkit import print_menu, modules, run_module, clear_terminal
 
 def main():
     
@@ -33,15 +23,25 @@ def main():
         "week_14" : "Portfolio Projects 2",
         "week_15" : "Final Projects & Wrap-up"
     }
-           
-    choices = weeks()
-    print(ascii_art("menu"))
-    print(ascii_art("divider"))
+    
     while True:
+
+        choices = modules("week_")
+        print(ascii_art("menu"))
+        print(ascii_art("divider"))
         print("Choose one of the following weeks to check their corresponding tasks:")
         print_menu(options, choices)
-        user_choice = validate_input("Type 'week_' plus the number of the week: e.g. 'week-1'\n - ", choices)
-        
+        user_choice = validate_input("Type 'week_' plus the number of the week: e.g. 'week_1'\n - ", choices)
+        clear_terminal()
+        run_module(user_choice)
+        print(ascii_art("menu"))
+        print(ascii_art("divider"))
+        user_choice = validate_input("Type 'esc' to quit, type 'continue' to run another task\n - ", ['esc', 'continue'])
+        clear_terminal()
+        if user_choice == 'esc':
+            break
+
+    print(ascii_art("goodbye"))
     
 if __name__ == "__main__":
     main()
