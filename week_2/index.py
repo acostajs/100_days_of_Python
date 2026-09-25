@@ -19,20 +19,21 @@ def main():
 
     while True:
         choices = modules("day_", True)
+        choices.append("back")
         print(ascii_art("menu"))
         print(ascii_art("divider"))
         print("Choose one of the corresponding tasks to run the script:")
         print_menu(tasks, choices)
-        user_choice = validate_input("Type 'day_' plus the number of the day to run the task. e.g. 'day_1', 'day_6'\n - ", choices)
-        clear_terminal()
-        run_module(user_choice, "task", __package__)
-        print(ascii_art("divider"))
-        print(ascii_art("menu"))
-        print(ascii_art("divider"))
-        user_choice = validate_input("Type 'back' to go back to main menu, type 'continue' to keep running tasks from this week\n - ", ['back', 'continue'])
-        clear_terminal()
-        if user_choice == 'back':
+        
+        user_choice = validate_input("Type 'day_(number) to choose a day'\nType 'back' to go to the main menu\n - ", choices)
+        if user_choice == "back":
             break
+        else:
+            clear_terminal()
+            run_module(user_choice, "task", __package__)
+            clear_terminal()
+
+
 
         
     

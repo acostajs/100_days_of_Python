@@ -27,19 +27,19 @@ def main():
     while True:
 
         choices = modules("week_")
+        choices.append("esc")
         print(ascii_art("menu"))
         print(ascii_art("divider"))
         print("Choose one of the following weeks to check their corresponding tasks:")
         print_menu(options, choices)
-        user_choice = validate_input("Type 'week_' plus the number of the week: e.g. 'week_1'\n - ", choices)
-        clear_terminal()
-        run_module(user_choice)
-        print(ascii_art("menu"))
-        print(ascii_art("divider"))
-        user_choice = validate_input("Type 'esc' to quit, type 'continue' to run another task\n - ", ['esc', 'continue'])
-        clear_terminal()
+
+        user_choice = validate_input("Type 'week_(number)' to choose a week\nType 'esc' to quit\n - ", choices)
         if user_choice == 'esc':
             break
+        else:
+            clear_terminal()
+            run_module(user_choice)
+            clear_terminal()
 
     print(ascii_art("goodbye"))
     

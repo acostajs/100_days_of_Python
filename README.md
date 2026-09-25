@@ -44,4 +44,4 @@
   **Task:** Work through the different debugging examples. (Not included in this repository.)
 
 - **Day 14:** Higher Lower Game Project.  
-  **Task:**  
+  **Task:** Create a simple game of choosing which celebrity has the more amount of followers.  
