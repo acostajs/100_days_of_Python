@@ -41,7 +41,7 @@
   **Task:** Write a guessing name with 3 different dificulties. 
 
 - **Day 13:** Debugging: How to Find and Fix Errors in your Code.  
-  **Task:**
+  **Task:** Work through the different debugging examples. (Not included in this repository.)
 
 - **Day 14:** Higher Lower Game Project.  
-  **Task:**  
+  **Task:** Create a simple game of choosing which celebrity has the more amount of followers.  

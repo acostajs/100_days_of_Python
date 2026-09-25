@@ -7,9 +7,9 @@ def validate_input(prompt: str, choices: list) -> str:
         Returns a valid choice.
     """
     valid_choices = choices
-    choice = input(prompt)
+    choice = input(prompt).lower()
     while choice not in valid_choices:
-        choice = input(f"Wrong input: Type {valid_choices}:\n - ")
+        choice = input(f"Wrong input: Type {valid_choices}:\n - ").lower()
 
     return choice
 
