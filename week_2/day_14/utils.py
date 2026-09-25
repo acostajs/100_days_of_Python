@@ -15,3 +15,11 @@ def random_celebrities(celebrities: list[dict]) -> tuple[dict, dict]:
     
     return choice_a, choice_b
 
+def format_choice(data: dict) -> str:
+    return f"{data["name"]}, {data["known_for"]}, from {data["origin"]}"
+
+def check_answer(user_answer: str, choice_a: dict, choice_b: dict) -> bool:
+    if choice_a["followers"] > choice_b["followers"]:
+        return user_answer == "a"
+    else:
+        return user_answer == "b"

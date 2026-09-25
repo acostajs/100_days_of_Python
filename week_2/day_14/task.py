@@ -3,7 +3,8 @@
 from common.ascii_art import ascii_art
 from common.validators import validate_input
 from common.toolkit import clear_terminal
-from utils import random_celebrities
+from .utils import random_celebrities, format_choice, check_answer
+
 
 def main():
     
@@ -48,20 +49,17 @@ def main():
         choice_a, choice_b = random_celebrities(celebrities)
         print(ascii_art("higher_lower"))
         print(ascii_art("divider"))
-        print(f"Compare A: {choice_a["name"]}, {choice_a["known_for"]}, from {choice_a["origin"]}")
-        print(ascii_art("vs"))
-        print(f"Against B: {choice_b["name"]}, {choice_b["known_for"]}, from {choice_b["origin"]}")
-        
+
         if score > 0:
             print(f"You're RIGHT! Your current score: {score}")
-            
-        if choice_a["followers"] > choice_b["followers"]:
-            answer = "a"
-        else:
-            answer = "b"
-        
+
+        print(f"Compare A: {format_choice(choice_a)}")
+        print(ascii_art("vs"))
+        print(f"Against B: {format_choice(choice_b)}")
+                            
         user_choice = validate_input("Who has more followers? Type 'A' or 'B': - ", ['a', 'b'])
-        if user_choice == answer:
+        answer = check_answer(user_choice, choice_a, choice_b)
+        if answer == True:
             score += 1
         else:
             attempts -= 1

@@ -30,7 +30,6 @@ def main():
         else:
             clear_terminal()
             run_module(user_choice, "task", __package__)
-            clear_terminal()
 
 if __name__ == "__name__":
     main()
