@@ -1,6 +1,7 @@
 # This is day 14 of 100 days of Python
 
-from common.ascii_art import ascii_art
+from common.common_art import COMMON_ART
+from .task_art import TASK_ART
 from common.validators import validate_input
 from common.toolkit import clear_terminal
 from .utils import random_celebrities, format_choice, check_answer
@@ -47,14 +48,14 @@ def main():
 
     while attempts == 1:
         choice_a, choice_b = random_celebrities(celebrities)
-        print(ascii_art("higher_lower"))
-        print(ascii_art("divider"))
+        print(TASK_ART("title"))
+        print(COMMON_ART("divider"))
 
         if score > 0:
             print(f"You're RIGHT! Your current score: {score}")
 
         print(f"Compare A: {format_choice(choice_a)}")
-        print(ascii_art("vs"))
+        print(TASK_ART("vs"))
         print(f"Against B: {format_choice(choice_b)}")
                             
         user_choice = validate_input("Who has more followers? Type 'A' or 'B': - ", ['a', 'b'])
@@ -66,10 +67,10 @@ def main():
 
         clear_terminal()
 
-    print(ascii_art("higher_lower"))
-    print(ascii_art("divider"))
+    print(TASK_ART("higher_lower"))
+    print(COMMON_ART("divider"))
     print(f"Sorry, that's wrong. Final score: {score}")
-    print(ascii_art("goodbye"))
+    print(TASK_ART("goodbye"))
         
             
 if __name__ == "__main__":
