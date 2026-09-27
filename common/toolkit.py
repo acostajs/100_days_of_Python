@@ -8,6 +8,10 @@ from common.validators import validate_input
 
 
 def print_menu(options: dict, choices: list):
+    """
+    Receives a dictionary and a list,
+    Prints the list of available options.
+    """
 
     for key, value in options.items():
         if key in choices:
@@ -52,22 +56,29 @@ def clear_terminal() -> None:
     sys.stdout.flush()
 
 
-def weekly_menu(data: dict, package: str):
+def menu(
+    folder: str,
+    data: dict,
+    option_append: str,
+    file: str,
+    package: str = "",
+    recursive: bool = False,
+):
 
     while True:
-        choices = modules("day_", True)
-        choices.append("back")
+        choices = modules(folder, recursive)
+        choices.append(option_append)
         print(COMMON_ART["menu"])
         print(COMMON_ART["divider"])
         print("Choose one of the corresponding tasks to run the script:")
         print_menu(data, choices)
 
         user_choice = validate_input(
-            "Type 'day_(number) to choose a day'\nType 'back' to go to the main menu\n - ",
+            f"Type '{folder}(number) to choose a day'\nType '{option_append}' to go back\n - ",
             choices,
         )
-        if user_choice == "back":
+        if user_choice == option_append:
             break
         else:
             clear_terminal()
-            run_module(user_choice, "task", package)
+            run_module(user_choice, file, package)

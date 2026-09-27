@@ -1,73 +1,35 @@
 # This is day 4 of 100 days of Python
 import random
+from .task_art import TASK_ART
+from .utils import compare_choices
+from common.common_art import COMMON_ART
+from common.validators import validate_input
+from common.toolkit import clear_terminal
 
-"""
-This script runs the code for day 4 of 100 days of Python.
-It prompts a game of rock, paper or scissors.
-Uses random choices to choose from the three options and compare it to the user answer.
-"""
 
-def print_choice(choice):
-    
-    if choice == "rock":
-        print('''
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-    ''')
-    if choice == "paper":
-        print('''
-    _______
----'   ____)____
-          ______)
-          _______)
-         _______)
----.__________)
-    ''')
-    if choice == "scissors":
-        print('''
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-    ''')
-
-    return (print)
-
-def compare_choices(user_choice, computer_choice):
-    tie_message = "It's a TIE! Try again!"
-    loose_message = "You LOOSE! Try again!"
-    win_message = "CONGRATULATIONS! YOU WIN!"
-    
-    if user_choice == computer_choice:
-        return tie_message
-    elif user_choice == "rock" and computer_choice == "paper" or user_choice == "scissors" and computer_choice == "rock" or user_choice == "paper" and computer_choice == "scissors":
-        return loose_message
-    else:
-        return win_message
-
-         
 def main():
 
-    choices = ["rock", "paper", "scissors"]
-    
-    user_choice = input("Choose between rock, paper or scissors: - ").lower()
-    if user_choice not in choices:
-        print(f"{user_choice} is not a possible choice, try again")
-        return
-    
-    computer_choice = random.choice(choices)
-    print(f"You've choosen {user_choice}")
-    print_choice(user_choice)
-    print(f"The computer choose {computer_choice}")
-    print_choice(computer_choice)
-    print(compare_choices(user_choice, computer_choice)) 
-       
+    play = "y"
+    while play == "y":
+        choices = ["rock", "paper", "scissors"]
+
+        print(TASK_ART["title"])
+        print(COMMON_ART["divider"])
+
+        user_choice = validate_input(
+            "Choose between rock, paper or scissors: - ", choices
+        )
+
+        computer_choice = random.choice(choices)
+        print(f"You've choosen {user_choice}")
+        print(TASK_ART[user_choice])
+        print(f"The computer choose {computer_choice}")
+        print(TASK_ART[computer_choice])
+        print(compare_choices(user_choice, computer_choice))
+
+        play = validate_input("Want to play again? Type 'y' or 'n':\n - ", ["y", "n"])
+        clear_terminal()
+
 
 if __name__ == "__main__":
     main()

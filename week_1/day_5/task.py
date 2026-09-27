@@ -1,34 +1,33 @@
 # This is Day 5 of 100 days of Python
 
-import random
-import string
+from .task_art import TASK_ART
+from common.common_art import COMMON_ART
+from common.validators import validate_input
+from common.toolkit import clear_terminal
+from .utils import password_generator
 
-"""
-This script runs the code for day 5 of 100 days of Python.
-This is a Password Generator.
-"""
 
 def main():
-    letters = list(string.ascii_letters)
-    digits = list(string.digits)
-    symbols = list(string.punctuation)
 
-    print("Welcome to the PyPassword Generator")
-    amount_letters = int(input("How many letters would you like in your password?:\n - "))
-    amount_digits = int(input("How many numbers would you like?:\n - "))
-    amount_symbols = int(input("How many symbols would you like?:\n - "))
+    play = "y"
+    while play == "y":
+        print(TASK_ART["title"])
+        print("Welcome to the Password Generator")
+        print(COMMON_ART["divider"])
+        amount_letters = int(
+            input("How many letters would you like in your password?:\n - ")
+        )
+        amount_digits = int(input("How many numbers would you like?:\n - "))
+        amount_symbols = int(input("How many symbols would you like?:\n - "))
 
-    characters = random.choices(letters, k=amount_letters)
-    characters += random.choices(digits, k=amount_digits)
-    characters += random.choices(symbols, k=amount_symbols)
+        password = password_generator(amount_letters, amount_digits, amount_symbols)
 
-    random.shuffle(characters)
+        print(f"Your password is: {password}")
+        play = validate_input(
+            "Do you want to generate a new password? Type 'y' or 'n':\n - ", ["y", "n"]
+        )
+        clear_terminal()
 
-    password = ""
-    for character in characters:
-        password += character
 
-    print(f"Your password is: {password}")
-    
-if __name__== "__main__":
+if __name__ == "__main__":
     main()
