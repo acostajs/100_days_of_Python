@@ -6,11 +6,13 @@ from common.toolkit import menu, clear_terminal
 
 
 def main():
-
-    clear_terminal()
-    menu("week_", main_menu, "exit", "index", recursive=False)
-    clear_terminal()
-    print(COMMON_ART["goodbye"])
+    try:
+        clear_terminal()
+        menu("week_", main_menu, "exit", "index", recursive=False)
+        clear_terminal()
+        print(COMMON_ART["goodbye"])
+    except KeyboardInterrupt:
+        print("\nProgram Interrupted. Exiting gracefully.")
 
 
 if __name__ == "__main__":
