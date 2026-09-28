@@ -3,10 +3,16 @@
 import importlib
 import sys
 from pathlib import Path
+from common.common_art import COMMON_ART
+from common.validators import validate_input
 
 
 def print_menu(options: dict, choices: list):
-   
+    """
+    Receives a dictionary and a list,
+    Prints the list of available options.
+    """
+
     for key, value in options.items():
         if key in choices:
             print(f"{key} : {value}")
@@ -14,21 +20,22 @@ def print_menu(options: dict, choices: list):
 
 def modules(folder_start: str, recursive: bool = False) -> list[str]:
     """
-        Receives the initial part of the name of the list of folders. e.g "week_", "day_"
-        It loops to find all the folders that start with folder_start.
-        Returns a list of all the folders found.
+    Receives the initial part of the name of the list of folders. e.g "week_", "day_"
+    It loops to find all the folders that start with folder_start.
+    Returns a list of all the folders found.
     """
     base_dir = Path(__file__).resolve().parent.parent
 
     items = base_dir.rglob("*") if recursive else base_dir.iterdir()
     folders = []
-    
+
     for item in items:
         if item.is_dir() and item.name.startswith(folder_start):
             folders.append(item.name)
 
     folders.sort()
     return folders
+
 
 def run_module(
     module_name: str,
@@ -43,6 +50,35 @@ def run_module(
     imported_module = importlib.import_module(full_name)
     imported_module.main()
 
+
 def clear_terminal() -> None:
     sys.stdout.write("\033[2J\033[H")
     sys.stdout.flush()
+
+
+def menu(
+    folder: str,
+    data: dict,
+    option_append: str,
+    file: str,
+    package: str = "",
+    recursive: bool = False,
+):
+
+    while True:
+        choices = modules(folder, recursive)
+        choices.append(option_append)
+        print(COMMON_ART["menu"])
+        print(COMMON_ART["divider"])
+        print("Choose one of the corresponding tasks to run the script:")
+        print_menu(data, choices)
+
+        user_choice = validate_input(
+            f"Type '{folder}(number) to choose a day'\nType '{option_append}' to go back\n - ",
+            choices,
+        )
+        if user_choice == option_append:
+            break
+        else:
+            clear_terminal()
+            run_module(user_choice, file, package)

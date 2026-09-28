@@ -1,46 +1,51 @@
 # This is the task for Day 10 of 100 days of Python
 
+from common.common_art import COMMON_ART
+from common.toolkit import clear_terminal
+from common.validators import validate_float, validate_input
+from .utils import calc
+from .task_art import TASK_ART
 
-from helpers import validate_int, validate_choice, calc
-from ascii_art import ascii_art
 
 def main():
     calculator = "on"
-    previous_calc = "no"
+    previous_calc = "n"
     result = 0
 
-    print(ascii_art("title"))
-    print(ascii_art("divider"))
     while calculator == "on":
-        if previous_calc == "yes":    
-            first_number = result
-        else:
-            first_number = validate_int("What's the first number:\n - ")
-            
-        operator = validate_choice({"+", "-", "*", "/" }, input("+ - * / \nPick an operation:\n - "))
-        second_number = validate_int("What's the second number:\n - ")
+        try:
+            clear_terminal()
+            print(TASK_ART["title"])
+            print(COMMON_ART["divider"])
+            if previous_calc == "y":
+                first_number = result
+                print(f"Previous result: {first_number}")
+            else:
+                first_number = validate_float("What's the first number:\n - ")
 
-        try:         
+            operator = validate_input(
+                '"+", "-", "*", "/"\n Pick an operation:\n - ', ["+", "-", "*", "/"]
+            )
+            second_number = validate_float("What's the second number:\n - ")
             result = calc(operator, first_number, second_number)
         except ValueError as error:
-            print(f"Error: {error}")
-            return
+            print(f"Error: {error}. Please try again.\n")
+            continue
+
         print(f"{first_number} {operator} {second_number} = {result}")
-        print(ascii_art("divider"))
-        print(f"Type 'y' to continue calculating with {result}")
-        print("Type 'n' to start a new calculation")
-        print("Type 'esc' to quit the calculator")
-        continue_or_not = validate_choice({"y", "n", "esc"}, input(" - ").lower())
-        print(ascii_art("divider"))
-        
+        print(COMMON_ART["divider"])
+        continue_or_not = validate_input(
+            "Type 'y' to continue, 'n' for new calculation, 'esc' to quit:\n - ",
+            ["y", "n", "esc"],
+        )
+        print(COMMON_ART["divider"])
 
-        if continue_or_not == 'y':
-            previous_calc = 'yes'
-        elif continue_or_not == 'n':
-            previous_calc = 'no'
-        elif continue_or_not == 'esc':
-            calculator = 'off'
-
+        if continue_or_not == "y":
+            previous_calc = "y"
+        elif continue_or_not == "n":
+            previous_calc = "n"
+        elif continue_or_not == "esc":
+            calculator = "off"
 
 
 if __name__ == "__main__":

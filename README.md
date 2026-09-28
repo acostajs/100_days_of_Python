@@ -1,7 +1,7 @@
 # 100_days_of_Python
 ## Follows the course 100 days of Code - Python
 
-### Week 1 - Fundamentals Part 1
+### Week 1 - Python Fundamentals
 - **Day 1:** Working with variables in Python to manage data.  
   **Task:** Create a band name generator.
   
@@ -23,7 +23,7 @@
 - **Day 7:** Hangman.
   **Task:** Create a "Hangman" game.
 
-### Week 2 - Fundamentals Part 2
+### Week 2 - Functions, data structures and debugging
 - **Day 8:** Function Parameters & Caesar Cipher.  
   **Task:**  Create a simple "Encryption - Decription" script called Caesar Cipher.  
 
@@ -45,3 +45,7 @@
 
 - **Day 14:** Higher Lower Game Project.  
   **Task:** Create a simple game of choosing which celebrity has the more amount of followers.  
+
+### Week 3 - OOP and Turtle Graphics
+- **Day 15:** Local development environment setup and the Coffee Machine.
+  **Task:** 
