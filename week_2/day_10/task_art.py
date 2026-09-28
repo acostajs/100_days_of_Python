@@ -1,10 +1,5 @@
-# This module provides ascii art for the task for Day 10 of 100 days of python
-
-
-def ascii_art(choice: str) -> str:
-    match choice:
-        case "title":
-            return """
+TASK_ART = {
+    "title": """
  _____________________
 |  _________________  |
 | | JO           0. | |
@@ -20,8 +15,4 @@ def ascii_art(choice: str) -> str:
 | |___|___|___| |___| |
 |_____________________|              
 """
-        case "divider":
-            return "x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x"
-
-    return ""
-
+}
