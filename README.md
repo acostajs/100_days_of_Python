@@ -48,4 +48,22 @@
 
 ### Week 3 - OOP and Turtle Graphics
 - **Day 15:** Local development environment setup and the Coffee Machine.
-  **Task:** 
+  **Task:** Create a simple coffee machine with OOP
+
+- **Day 16:** Object Oriented Programming.
+  **Task:** Create a simple Turtle Graphics script.
+
+- **Day 17:** The quiz project and the benefits of OOP.
+  **Task:** Create a quiz game using OOP.
+
+- **Day 18:** Turtle and the graphical user interface (GUI).
+  **TasK:**  
+
+- **Day 19:** Instances, State and High Order Functions.  
+  **TasK:**  
+   
+- **Day 20:** Build the snake game part 1: Animation and coordinates.  
+  **TasK:**
+  
+- **Day 21:** Build the snake game part 2: Inheritace and list slicing.  
+  **TasK:**  
