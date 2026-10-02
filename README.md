@@ -57,7 +57,7 @@
   **Task:** Create a quiz game using OOP.
 
 - **Day 18:** Turtle and the graphical user interface (GUI).
-  **TasK:**  
+  **TasK:**  Using OOP create a script for Turtle to be able to interact with it.  
 
 - **Day 19:** Instances, State and High Order Functions.  
   **TasK:**  
